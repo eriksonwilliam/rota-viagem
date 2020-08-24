@@ -33,7 +33,6 @@ class File:
 
 
 	def writeFile(self, origin, destiny, amount):
-		print(origin + ',' + destiny + ',' + str(amount))
 		try:
 			
 			newRoute = origin + ',' + destiny + ',' + str(amount)

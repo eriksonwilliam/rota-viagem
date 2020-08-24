@@ -18,6 +18,18 @@ def create():
     api.dataFile.writeFile(data['origin'], data['destiny'], data['amount'])
 
     return jsonify({"message": "New route successfully created"})
+
+@app.route("/api/search",  methods=["POST"])
+def search():
+    data = request.get_json()
+    if isBlank(data['origin']):
+        return jsonify({"message":"Origin cannot be null"}), 406
+    elif isBlank(data['destiny']):
+        return jsonify({"message":"Destiny cannot be null"}), 406
+
+    #api.dataFile.writeFile(data['origin'], data['destiny'], data['amount'])
+
+    return jsonify({"message": data})
     
 def isBlank (data):
     if data and data.strip():
@@ -30,6 +42,7 @@ if __name__ == '__main__':
 
     for param in sys.argv:
         args.append(param)
+        
     fileInput = args[1]
 
     api = Main(fileInput)
