@@ -83,6 +83,7 @@ Com o objetivo de ser:
 
 ## Descrição simpples da API Rest ##
 POST: localhost:5000/api/create 
+
 body
 ```shell
 {
@@ -99,6 +100,7 @@ retorno
 ```
 
 POST: localhost:5000/api/search 
+
 body
 ```shell
 {

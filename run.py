@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
-from Controller.Main import *
-from Model.SearchRoute import *
+from Controllers.Main import *
+from Models.SearchRoute import *
 
 app = Flask(__name__)
 
@@ -27,7 +27,7 @@ def search():
         return jsonify({"message":"Destiny cannot be null"}), 406
 
     search = Search()
-
+    api.dataFile.readFile()
     better_route = search.batter_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
 
     return jsonify({"route": better_route[0], "amount":better_route[1]})

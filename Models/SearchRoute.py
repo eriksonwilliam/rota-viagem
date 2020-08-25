@@ -1,11 +1,9 @@
 import sys
-from Controller.Main import *
+from Controllers.Main import *
 
 class Search():
 
     def batter_price_travel(self, route:str, dataRoutes):
-
-        print(dataRoutes)
         
         arr_copy = dataRoutes
         

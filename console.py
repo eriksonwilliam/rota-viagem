@@ -1,5 +1,5 @@
-from Controller.Main import *
-from Model.SearchRoute import *
+from Controllers.Main import *
+from Models.SearchRoute import *
 
 def show():
 

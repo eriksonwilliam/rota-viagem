@@ -1,5 +1,5 @@
 import sys
-from Model.File import *
+from Models.File import *
 
 class Main(object):
 
