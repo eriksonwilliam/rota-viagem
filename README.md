@@ -30,8 +30,14 @@ O melhor preço é da rota **1** logo, o output da consulta deve ser **GRU - BRC
 ### Execução do programa ###
 A inicializacao do teste se dará por linha de comando onde o primeiro argumento é o arquivo com a lista de rotas inicial.
 
+para executar o serviço rest
 ```shell
-$ mysolution input-routes.csv
+$ python run.py input-routes.csv
+```
+
+para executar o console
+```shell
+$ python console.py input-routes.csv
 ```
 
 Duas interfaces de consulta devem ser implementadas:
@@ -50,6 +56,64 @@ Duas interfaces de consulta devem ser implementadas:
     - Consulta de melhor rota entre dois pontos.
 
 Também será necessária a implementação de 2 endpoints Rest, um para registro de rotas e outro para consula de melhor rota.
+
+## Estrutura dos arquivos/pacotes ##
+```
+rota-viagem
+├───Controllers
+│   ├───Main.py
+│
+├───Models
+│   ├───File.py
+│   ├───SearchRoute.py
+│
+├───console.py
+│
+├───run.py
+```
+
+## Decisões de design adotadas para a solução ##
+Foi utilizado o TDD (Test Driven Development) deviddo seguintes as vantagens oferecidas por essa abordagem:
+- Qualidade do código 
+- Segurança
+
+Com o objetivo de ser:
+- Testável.
+- de Facil manutenção.
+
+## Descrição simpples da API Rest ##
+POST: localhost:5000/api/create 
+body
+```shell
+{
+    "origin": "MAO",
+    "destiny" : "REC",
+    "amount": 100
+}
+```
+retorno
+```shell
+{
+  "message": "New route successfully created"
+}
+```
+
+POST: localhost:5000/api/search 
+body
+```shell
+{
+    "origin": "GRU",
+    "destiny" : "CDG"
+}
+```
+retorno
+```shell
+{
+  "amount": 40,
+  "route": "GRU-BRC-SCL-ORL-CDG"
+}
+```
+
 
 ## Recomendações ##
 Para uma melhor fluides da nossa conversa, atente-se aos seguintes pontos:

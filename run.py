@@ -6,10 +6,6 @@ app = Flask(__name__)
 
 api = None
 
-@app.route("/")
-def index():
-    return jsonify({"message":"Hello Json!"})
-
 @app.route("/api/create",  methods=["POST"])
 def create():
     data = request.get_json()
