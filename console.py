@@ -1,4 +1,5 @@
 from Controller.Main import *
+from Model.SearchRoute import *
 
 def show():
 
@@ -10,13 +11,22 @@ def show():
         **********************
         ''')
 
-def createRoute(api):
+def createRoute():
     print('Input new route: Origin,Destiny,Amount')
     origin, destiny, amount = input().split(',')
     if api.dataFile.writeFile(origin, destiny, amount):
         print('New route successfully created')
     else:
         print('Error updating the file')
+
+def searchRoute():
+
+    print('Input Origin-Destiny: ')
+
+    search = Search()
+    better_route = search.batter_price_travel(input(),dataRoutes= api.dataFile.dataInput)
+
+    print(f'best route: {better_route[0]} > ${better_route[1]}')
 
 
 
@@ -36,12 +46,12 @@ if __name__ == '__main__':
     while option != 0:
         
         show()
-        option = int(input('Enter with option'))
+        option = int(input('Enter with option: '))
         
         if(option == 1):
-            createRoute(api)
+            createRoute()
         elif option == 2:
-            print('under development')
+            searchRoute()
         elif option == 0:
             print('Exit')
         else :

@@ -4,9 +4,10 @@ from Controller.Main import *
 class Search():
 
     def batter_price_travel(self, route:str, dataRoutes):
+
+        print(dataRoutes)
         
         arr_copy = dataRoutes
-        print(arr_copy)
         
         route_arr = route.split('-')
         start = route_arr[0]
@@ -48,7 +49,7 @@ class Search():
         
         better_value = sys.maxsize
         better_route = None
-        print(routes)
+
         for r in routes:
             if int(r[1]) < better_value:
                 better_value = int(r[1])

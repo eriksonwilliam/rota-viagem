@@ -32,9 +32,9 @@ def search():
 
     search = Search()
 
-    dataRoute = search.batter_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
+    better_route = search.batter_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
 
-    return jsonify({"route": dataRoute[0], "amount":dataRoute[1]})
+    return jsonify({"route": better_route[0], "amount":better_route[1]})
     
 def isBlank (data):
     if data and data.strip():
