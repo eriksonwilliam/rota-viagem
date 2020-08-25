@@ -1,7 +1,10 @@
 from flask import Flask, jsonify, request
 from Controller.Main import *
+from Model.SearchRoute import *
 
 app = Flask(__name__)
+
+api = None
 
 @app.route("/")
 def index():
@@ -27,9 +30,11 @@ def search():
     elif isBlank(data['destiny']):
         return jsonify({"message":"Destiny cannot be null"}), 406
 
-    #api.dataFile.writeFile(data['origin'], data['destiny'], data['amount'])
+    search = Search()
 
-    return jsonify({"message": data})
+    dataRoute = search.batter_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
+
+    return jsonify({"route": dataRoute[0], "amount":dataRoute[1]})
     
 def isBlank (data):
     if data and data.strip():

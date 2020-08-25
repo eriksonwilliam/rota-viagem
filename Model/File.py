@@ -8,8 +8,8 @@ class File:
 		self.fileInput = fileInput
 		self.dataInput = []
 
-	def openFile(self, file, opening):
-		return open(file, opening)
+	def openFile(self, file, openning):
+		return open(file, openning)
 
 	
 	def readFile(self):
