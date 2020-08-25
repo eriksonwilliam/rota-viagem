@@ -79,7 +79,7 @@ Foi utilizado o TDD (Test Driven Development) deviddo seguintes as vantagens ofe
 
 Com o objetivo de ser:
 - Testável.
-- de Facil manutenção.
+- de Fácil manutenção.
 
 ## Descrição simpples da API Rest ##
 POST: localhost:5000/api/create 
