@@ -24,7 +24,7 @@ def searchRoute():
     print('Input Origin-Destiny: ')
 
     search = Search()
-    better_route = search.batter_price_travel(input(),dataRoutes= api.dataFile.dataInput)
+    better_route = search.better_price_travel(input(),dataRoutes= api.dataFile.dataInput)
 
     print(f'best route: {better_route[0]} > ${better_route[1]}')
 

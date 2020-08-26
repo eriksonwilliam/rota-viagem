@@ -8,6 +8,12 @@ class File:
 		self.fileInput = fileInput
 		self.dataInput = []
 
+	def isBlank (self, data):
+		if data and data.strip():
+			return False
+		
+		return True
+
 	def openFile(self, file, openning):
 		return open(file, openning)
 
@@ -33,6 +39,14 @@ class File:
 
 
 	def writeFile(self, origin, destiny, amount):
+		
+		if self.isBlank(origin):
+			return False
+		elif self.isBlank(destiny):
+			return False
+		elif amount <= 0:
+			return False
+
 		try:
 			
 			newRoute = origin + ',' + destiny + ',' + str(amount)
@@ -43,5 +57,6 @@ class File:
 
 			return True
 		except: 
-			print()
 			return False
+
+	

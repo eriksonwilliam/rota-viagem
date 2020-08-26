@@ -22,9 +22,11 @@ def create():
 def search():
     data = request.get_json()
     if isBlank(data['origin']):
-        return jsonify({"message":"Origin cannot be null"}), 406
+        return jsonify({"message":"Origin cannot be null or empty"}), 406
     elif isBlank(data['destiny']):
-        return jsonify({"message":"Destiny cannot be null"}), 406
+        return jsonify({"message":"Destiny cannot be null or empty"}), 406
+    elif data['amount'] <= 0:
+        return jsonify({"message":"Amount cannot be less than or equal to 0"}), 406
 
     search = Search()
     api.dataFile.readFile()
