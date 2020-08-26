@@ -81,7 +81,7 @@ Com o objetivo de ser:
 - Testável.
 - de Fácil manutenção.
 
-## Descrição simpples da API Rest ##
+## Descrição simples da API Rest ##
 POST: localhost:5000/api/create 
 
 body
