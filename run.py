@@ -13,6 +13,8 @@ def create():
         return jsonify({"message":"Origin cannot be null"}), 406
     elif isBlank(data['destiny']):
         return jsonify({"message":"Destiny cannot be null"}), 406
+    elif data['amount'] <= 0:
+        return jsonify({"message":"Amount cannot be less than or equal to 0"}), 406
 
     api.dataFile.writeFile(data['origin'], data['destiny'], data['amount'])
 
@@ -25,12 +27,10 @@ def search():
         return jsonify({"message":"Origin cannot be null or empty"}), 406
     elif isBlank(data['destiny']):
         return jsonify({"message":"Destiny cannot be null or empty"}), 406
-    elif data['amount'] <= 0:
-        return jsonify({"message":"Amount cannot be less than or equal to 0"}), 406
-
+    
     search = Search()
     api.dataFile.readFile()
-    better_route = search.batter_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
+    better_route = search.better_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
 
     return jsonify({"route": better_route[0], "amount":better_route[1]})
     

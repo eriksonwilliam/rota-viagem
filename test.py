@@ -12,6 +12,8 @@ destinyEmpty = ""
 amountOk = 358
 amountZero = 0
 amountNegative = -3
+routeOk = "GRU-CDG"
+routeWrong = "MAO-GRU"
 
 class Route(unittest.TestCase):
     
@@ -49,6 +51,20 @@ class Route(unittest.TestCase):
         api = Main('input-file.csv')
         api.openningFile()
         self.assertFalse(api.dataFile.writeFile(originEmpty, destinyEmpty, amountNegative))
+
+    def test_SearchBetterRoute(self):
+        api = Main('input-file.csv')
+        api.openningFile()
+        search = Search()
+        self.assertEqual(['GRU-BRC-SCL-ORL-CDG', 40],
+            search.better_price_travel(route=routeOk,dataRoutes= api.dataFile.dataInput))
+
+    def test_SearchBetterRouteWrong(self):
+        api = Main('input-file.csv')
+        api.openningFile()
+        search = Search()
+        self.assertEqual(None,
+            search.better_price_travel(route=routeWrong,dataRoutes= api.dataFile.dataInput))
 
 
     

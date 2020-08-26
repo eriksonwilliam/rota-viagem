@@ -48,9 +48,10 @@ class Search():
         better_value = sys.maxsize
         better_route = None
 
-        for r in routes:
-            if int(r[1]) < better_value:
-                better_value = int(r[1])
-                better_route = r
-
+        if(routes):
+            for r in routes:
+                if int(r[1]) < better_value:
+                    better_value = int(r[1])
+                    better_route = r
+                    
         return better_route
