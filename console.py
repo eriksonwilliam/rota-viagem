@@ -25,8 +25,11 @@ def searchRoute():
 
     search = Search()
     better_route = search.better_price_travel(input(),dataRoutes= api.dataFile.dataInput)
-
-    print(f'best route: {better_route[0]} > ${better_route[1]}')
+    
+    if better_route is not None:
+        print(f'best route: {better_route[0]} > ${better_route[1]}')
+    else:
+        print('Route not found')
 
 
 

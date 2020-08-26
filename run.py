@@ -32,7 +32,10 @@ def search():
     api.dataFile.readFile()
     better_route = search.better_price_travel(route=data['origin']+"-"+data['destiny'],dataRoutes= api.dataFile.dataInput)
 
-    return jsonify({"route": better_route[0], "amount":better_route[1]})
+    if better_route is not None:
+        return jsonify({"route": better_route[0], "amount":better_route[1]})
+    
+    return jsonify({"message":"Route not found"}), 400
     
 def isBlank (data):
     if data and data.strip():

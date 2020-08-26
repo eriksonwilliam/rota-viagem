@@ -43,12 +43,13 @@ class Search():
                         o_item = arr_copy[x][1]
                         x = -1
                 x += 1
-            routes.append(s_arr)
+            if len(s_arr) != 0:
+                routes.append(s_arr)
         
         better_value = sys.maxsize
         better_route = None
 
-        if(routes):
+        if(len(routes) != 0):
             for r in routes:
                 if int(r[1]) < better_value:
                     better_value = int(r[1])
